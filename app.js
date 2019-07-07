@@ -63,6 +63,6 @@ app.use(authRoutes);
 
 var port = process.env.PORT || 3000;
 
-app.listen(port,function(){
+app.listen(port,process.env.IP,function(){
 	console.log("Yelpcamp started");
 })

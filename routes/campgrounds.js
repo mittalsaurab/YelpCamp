@@ -25,9 +25,9 @@ router.get('/',function(req,res){
 	
 	// console.log(req.query.search);
 
-	if(req.query.searh){
-		console.log("heyyy");
-	}
+	// if(req.query.searh){
+	// 	console.log("heyyy");
+	// }
 
 	if(req.query.search){
 		const regex = new RegExp(escapeRegex(req.query.search), 'gi');	
