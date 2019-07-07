@@ -1,0 +1,36 @@
+<%include ../partials/header%>
+	
+	<div class="container">
+		<div class="jumbotron">
+		  <h1>Welcome to Campgrounds</h1>
+		  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+		  <a class="btn btn-primary btn-lg" href="/campgrounds/new" role="button">Add Campground</a>
+		  <p>
+		  	<form action="/campgrounds" method="GET" class="form-inline">
+		  		<div >
+		  			<input type="text" name="search" class="form-control" placeholder="Campground search">	
+		  		</div>
+		  		<div >
+		  			<button class="btn btn-default">Search</button>		
+		  		</div>		  		
+		  	</form>
+		  </p>
+		</div>
+
+		<div class="row text-center" style="display: flex,flex-wrap:wrap">
+			<% camps.forEach(function(camp){ %>
+				<div class="col-md-4 col-sm-6 col-lg-3">
+					<div class="card" style=" display: flex ,flex-wrap:wrap">
+					  <img class="card-img-top" src="<%= camp.image%>" alt="Card image cap">
+						  <div class="card-body">
+						    <h3 class="card-title" style="margin:0px"><%=camp.name%></h3>
+						    <p><%=camp.description.substr(0,10)%>....</p>
+						    <a href="/campgrounds/<%=camp._id%>" class="btn btn-primary">More</a>
+						  </div>						  						  
+					</div>
+				</div>
+			<% }) %>
+		</div>
+	</div>	
+
+<%include ../partials/footer%>
