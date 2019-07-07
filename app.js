@@ -20,7 +20,9 @@ var express				=require("express"),
 	var campgroundRoutes	 =require("./routes/campgrounds");
 	var authRoutes			=require("./routes/index");
 
-mongoose.connect("mongodb://localhost/yelp_camp",{ useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost/yelp_camp",{ useNewUrlParser: true });
+mongoose.connect("mongodb+srv://saurabh:MongoDB@1@yelpcamp-sqlb4.mongodb.net/test?retryWrites=true&w=majority",{useNewUrlParser: true });
+//mongodb+srv://saurabh:MongoDB@1@yelpcamp-sqlb4.mongodb.net/test?retryWrites=true&w=majority
 
 app.use(bodyParser.urlencoded({extended:true}));
 

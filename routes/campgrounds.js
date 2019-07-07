@@ -74,26 +74,27 @@ router.post('/',middleware.isLoggedIn,function(req,res){
 			username:req.user.username
 		}
 		
-		// console.log(campground);
-		geocoder.geocode('delhi',function(err,data){
-			console.log(process.env.GEO_CODER_API);
-			console.log(data);
-			eval(require('locus'));
+		// // console.log(campground);
+		// geocoder.geocode('delhi',function(err,data){
+		// 	console.log(process.env.GEO_CODER_API);
+		// 	console.log(data);
+		// 	// eval(require('locus'));
 
-			if(err||!data.length){
-				req.flash("error","Invalid Address");
-				res.redirect('back');
-			}
+		// 	if(err||!data.length){
+		// 		req.flash("error","Invalid Address");
+		// 		res.redirect('back');
+		// 	}
 
-			var lat = data.results[0].geometry.location.lat;
-		    var lng = data.results[0].geometry.location.lng;
-		    var location = data.results[0].formatted_address;
+		// 	// var lat = data.results[0].geometry.location.lat;
+		//     // var lng = data.results[0].geometry.location.lng;
+		//     // var location = data.results[0].formatted_address;
 
-		    campground.location=location;
-		    campground.lng=lng;
-		    campground.lat=lat;
+		//     // campground.location=location;
+		//     // campground.lng=lng;
+		//     // campground.lat=lat;
+		// }) 
 
-		    Camp.create(campground,function(err,dummy){
+		Camp.create(campground,function(err,dummy){
 				if(err){
 					console.log(err);
 				}
@@ -103,9 +104,7 @@ router.post('/',middleware.isLoggedIn,function(req,res){
 					req.flash("success","Camp added");
 					res.redirect("/campgrounds");
 				}
-			})
-
-		}) 
+		})
 })
 
 //Show Campground
