@@ -1,3 +1,4 @@
+//This File can be used as small dummy database 
 var Camp=require("./models/camp");
 var Comment=require("./models/comment");
 var mongoose=require("mongoose");
